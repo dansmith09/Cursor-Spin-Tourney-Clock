@@ -2,7 +2,7 @@
   "name": "spin-tourney-clock",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://danielsmith.github.io/spin-tourney-clock",
+  "homepage": "https://dansmith09.github.io/Cursor-Spin-Tourney-Clock",
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
