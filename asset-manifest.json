@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Cursor-Spin-Tourney-Clock/static/css/main.e6c13ad2.css",
+    "main.js": "/Cursor-Spin-Tourney-Clock/static/js/main.80f4446a.js",
+    "static/js/453.09a80368.chunk.js": "/Cursor-Spin-Tourney-Clock/static/js/453.09a80368.chunk.js",
+    "index.html": "/Cursor-Spin-Tourney-Clock/index.html",
+    "main.e6c13ad2.css.map": "/Cursor-Spin-Tourney-Clock/static/css/main.e6c13ad2.css.map",
+    "main.80f4446a.js.map": "/Cursor-Spin-Tourney-Clock/static/js/main.80f4446a.js.map",
+    "453.09a80368.chunk.js.map": "/Cursor-Spin-Tourney-Clock/static/js/453.09a80368.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.80f4446a.js"
+  ]
+}
