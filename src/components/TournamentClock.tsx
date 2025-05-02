@@ -90,7 +90,8 @@ const TournamentClock: React.FC<TournamentClockProps> = ({ selectedPrize, initia
         flexDirection: 'column',
         justifyContent: 'center',
         bgcolor: '#121212',
-        color: '#ffffff'
+        color: '#ffffff',
+        background: 'linear-gradient(135deg, #1a1a1a 0%, #121212 100%)'
       }}
     >
       <Typography 
@@ -113,160 +114,173 @@ const TournamentClock: React.FC<TournamentClockProps> = ({ selectedPrize, initia
       </Typography>
 
       {!prize && (
-        <Paper 
-          elevation={3} 
-          sx={{ 
-            p: 4, 
-            mb: 4,
-            borderRadius: 2,
-            bgcolor: '#1E1E1E',
-            border: '1px solid rgba(184,134,11,0.1)'
-          }}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
         >
-          <Typography 
-            variant="h4" 
-            align="center" 
-            gutterBottom 
+          <Paper 
+            elevation={3} 
             sx={{ 
-              mb: 3,
-              fontWeight: 800,
-              color: '#DAA520',
-              letterSpacing: '-0.01em',
-              textShadow: '0 0 5px rgba(184,134,11,0.2)'
-            }}
-          >
-            Enter Players
-          </Typography>
-          <Typography 
-            variant="subtitle1" 
-            align="center" 
-            sx={{ 
-              mb: 3,
-              color: '#A9A9A9',
-              fontWeight: 600
-            }}
-          >
-            Add 1-3 players to start the tournament
-          </Typography>
-          <Box sx={{ display: 'flex', gap: 3, mb: 3 }}>
-            <TextField
-              label="Player 1"
-              value={players[0] || ''}
-              onChange={(e) => handlePlayerChange(0, e.target.value)}
-              fullWidth
-              variant="outlined"
-              sx={{ 
-                '& .MuiOutlinedInput-root': { 
-                  borderRadius: 2,
-                  '& .MuiOutlinedInput-input': {
-                    fontSize: '1.1rem',
-                    fontWeight: 600,
-                    color: '#ffffff'
-                  },
-                  '& fieldset': {
-                    borderColor: 'rgba(184,134,11,0.2)',
-                  },
-                  '&:hover fieldset': {
-                    borderColor: 'rgba(184,134,11,0.3)',
-                  },
-                  '&.Mui-focused fieldset': {
-                    borderColor: '#DAA520',
-                  },
-                },
-                '& .MuiInputLabel-root': {
-                  fontSize: '1rem',
-                  fontWeight: 600,
-                  color: '#A9A9A9'
-                }
-              }}
-            />
-            <TextField
-              label="Player 2"
-              value={players[1] || ''}
-              onChange={(e) => handlePlayerChange(1, e.target.value)}
-              fullWidth
-              variant="outlined"
-              sx={{ 
-                '& .MuiOutlinedInput-root': { 
-                  borderRadius: 2,
-                  '& .MuiOutlinedInput-input': {
-                    fontSize: '1.1rem',
-                    fontWeight: 600,
-                    color: '#ffffff'
-                  },
-                  '& fieldset': {
-                    borderColor: 'rgba(184,134,11,0.2)',
-                  },
-                  '&:hover fieldset': {
-                    borderColor: 'rgba(184,134,11,0.3)',
-                  },
-                  '&.Mui-focused fieldset': {
-                    borderColor: '#DAA520',
-                  },
-                },
-                '& .MuiInputLabel-root': {
-                  fontSize: '1rem',
-                  fontWeight: 600,
-                  color: '#A9A9A9'
-                }
-              }}
-            />
-            <TextField
-              label="Player 3"
-              value={players[2] || ''}
-              onChange={(e) => handlePlayerChange(2, e.target.value)}
-              fullWidth
-              variant="outlined"
-              sx={{ 
-                '& .MuiOutlinedInput-root': { 
-                  borderRadius: 2,
-                  '& .MuiOutlinedInput-input': {
-                    fontSize: '1.1rem',
-                    fontWeight: 600,
-                    color: '#ffffff'
-                  },
-                  '& fieldset': {
-                    borderColor: 'rgba(184,134,11,0.2)',
-                  },
-                  '&:hover fieldset': {
-                    borderColor: 'rgba(184,134,11,0.3)',
-                  },
-                  '&.Mui-focused fieldset': {
-                    borderColor: '#DAA520',
-                  },
-                },
-                '& .MuiInputLabel-root': {
-                  fontSize: '1rem',
-                  fontWeight: 600,
-                  color: '#A9A9A9'
-                }
-              }}
-            />
-          </Box>
-          <Button
-            variant="contained"
-            onClick={handleStart}
-            disabled={!players.some(p => p)}
-            fullWidth
-            sx={{ 
-              py: 1.5,
+              p: 4, 
+              mb: 4,
               borderRadius: 2,
-              fontSize: '1.1rem',
-              fontWeight: 800,
-              letterSpacing: '0.02em',
-              textTransform: 'none',
-              background: 'linear-gradient(45deg, #B8860B 30%, #DAA520 90%)',
-              '&:hover': {
-                background: 'linear-gradient(45deg, #DAA520 30%, #B8860B 90%)',
-              },
-              '&:disabled': {
-                background: 'linear-gradient(45deg, #444444 30%, #666666 90%)',
-              }
+              background: 'linear-gradient(135deg, #2a2a2a 0%, #1E1E1E 100%)',
+              border: '1px solid rgba(184,134,11,0.2)',
+              boxShadow: '0 0 20px rgba(0,0,0,0.3)'
             }}
           >
-            Start Tournament
-          </Button>
-        </Paper>
+            <Typography 
+              variant="h4" 
+              align="center" 
+              gutterBottom 
+              sx={{ 
+                mb: 3,
+                fontWeight: 800,
+                background: 'linear-gradient(45deg, #B8860B 30%, #DAA520 90%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                letterSpacing: '-0.01em',
+                textShadow: '0 0 5px rgba(184,134,11,0.2)'
+              }}
+            >
+              Enter Players
+            </Typography>
+            <Typography 
+              variant="subtitle1" 
+              align="center" 
+              sx={{ 
+                mb: 3,
+                color: '#A9A9A9',
+                fontWeight: 600
+              }}
+            >
+              Add 1-3 players to start the tournament
+            </Typography>
+            <Box sx={{ display: 'flex', gap: 3, mb: 3 }}>
+              <TextField
+                label="Player 1"
+                value={players[0] || ''}
+                onChange={(e) => handlePlayerChange(0, e.target.value)}
+                fullWidth
+                variant="outlined"
+                sx={{ 
+                  '& .MuiOutlinedInput-root': { 
+                    borderRadius: 2,
+                    '& .MuiOutlinedInput-input': {
+                      fontSize: '1.1rem',
+                      fontWeight: 600,
+                      color: '#ffffff'
+                    },
+                    '& fieldset': {
+                      borderColor: 'rgba(184,134,11,0.3)',
+                    },
+                    '&:hover fieldset': {
+                      borderColor: 'rgba(184,134,11,0.5)',
+                    },
+                    '&.Mui-focused fieldset': {
+                      borderColor: '#DAA520',
+                    },
+                    background: 'rgba(0,0,0,0.2)'
+                  },
+                  '& .MuiInputLabel-root': {
+                    fontSize: '1rem',
+                    fontWeight: 600,
+                    color: '#A9A9A9'
+                  }
+                }}
+              />
+              <TextField
+                label="Player 2"
+                value={players[1] || ''}
+                onChange={(e) => handlePlayerChange(1, e.target.value)}
+                fullWidth
+                variant="outlined"
+                sx={{ 
+                  '& .MuiOutlinedInput-root': { 
+                    borderRadius: 2,
+                    '& .MuiOutlinedInput-input': {
+                      fontSize: '1.1rem',
+                      fontWeight: 600,
+                      color: '#ffffff'
+                    },
+                    '& fieldset': {
+                      borderColor: 'rgba(184,134,11,0.3)',
+                    },
+                    '&:hover fieldset': {
+                      borderColor: 'rgba(184,134,11,0.5)',
+                    },
+                    '&.Mui-focused fieldset': {
+                      borderColor: '#DAA520',
+                    },
+                    background: 'rgba(0,0,0,0.2)'
+                  },
+                  '& .MuiInputLabel-root': {
+                    fontSize: '1rem',
+                    fontWeight: 600,
+                    color: '#A9A9A9'
+                  }
+                }}
+              />
+              <TextField
+                label="Player 3"
+                value={players[2] || ''}
+                onChange={(e) => handlePlayerChange(2, e.target.value)}
+                fullWidth
+                variant="outlined"
+                sx={{ 
+                  '& .MuiOutlinedInput-root': { 
+                    borderRadius: 2,
+                    '& .MuiOutlinedInput-input': {
+                      fontSize: '1.1rem',
+                      fontWeight: 600,
+                      color: '#ffffff'
+                    },
+                    '& fieldset': {
+                      borderColor: 'rgba(184,134,11,0.3)',
+                    },
+                    '&:hover fieldset': {
+                      borderColor: 'rgba(184,134,11,0.5)',
+                    },
+                    '&.Mui-focused fieldset': {
+                      borderColor: '#DAA520',
+                    },
+                    background: 'rgba(0,0,0,0.2)'
+                  },
+                  '& .MuiInputLabel-root': {
+                    fontSize: '1rem',
+                    fontWeight: 600,
+                    color: '#A9A9A9'
+                  }
+                }}
+              />
+            </Box>
+            <Button
+              variant="contained"
+              onClick={handleStart}
+              disabled={!players.some(p => p)}
+              fullWidth
+              sx={{ 
+                py: 1.5,
+                borderRadius: 2,
+                fontSize: '1.1rem',
+                fontWeight: 800,
+                letterSpacing: '0.02em',
+                textTransform: 'none',
+                background: 'linear-gradient(45deg, #B8860B 30%, #DAA520 90%)',
+                '&:hover': {
+                  background: 'linear-gradient(45deg, #DAA520 30%, #B8860B 90%)',
+                  boxShadow: '0 0 15px rgba(184,134,11,0.4)'
+                },
+                '&:disabled': {
+                  background: 'linear-gradient(45deg, #444444 30%, #666666 90%)',
+                }
+              }}
+            >
+              Start Tournament
+            </Button>
+          </Paper>
+        </motion.div>
       )}
 
       {prize && (
@@ -291,7 +305,8 @@ const TournamentClock: React.FC<TournamentClockProps> = ({ selectedPrize, initia
               borderRadius: 2,
               background: 'linear-gradient(45deg, #B8860B 30%, #DAA520 90%)',
               color: '#000000',
-              border: '2px solid rgba(255,255,255,0.1)'
+              border: '2px solid rgba(255,255,255,0.2)',
+              boxShadow: '0 0 20px rgba(184,134,11,0.4)'
             }}
           >
             <Typography 
@@ -323,41 +338,48 @@ const TournamentClock: React.FC<TournamentClockProps> = ({ selectedPrize, initia
       )}
 
       {prize && (
-        <Paper 
-          elevation={3} 
-          sx={{ 
-            p: 3, 
-            mb: 4,
-            borderRadius: 2,
-            bgcolor: '#1E1E1E',
-            border: '1px solid rgba(184,134,11,0.1)'
-          }}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
         >
-          <Box sx={{ display: 'flex', justifyContent: 'center', gap: 4 }}>
-            <Typography 
-              variant="h5" 
-              sx={{
-                fontWeight: 800,
-                letterSpacing: '0.02em',
-                color: '#DAA520',
-                textShadow: '0 0 5px rgba(184,134,11,0.2)'
-              }}
-            >
-              Time: {formatTime(timeRemaining)}
-            </Typography>
-            <Typography 
-              variant="h5"
-              sx={{
-                fontWeight: 800,
-                letterSpacing: '0.02em',
-                color: '#DAA520',
-                textShadow: '0 0 5px rgba(184,134,11,0.2)'
-              }}
-            >
-              Blinds: {currentBlindLevel.smallBlind}/{currentBlindLevel.bigBlind}
-            </Typography>
-          </Box>
-        </Paper>
+          <Paper 
+            elevation={3} 
+            sx={{ 
+              p: 3, 
+              mb: 4,
+              borderRadius: 2,
+              background: 'linear-gradient(135deg, #2a2a2a 0%, #1E1E1E 100%)',
+              border: '1px solid rgba(184,134,11,0.2)',
+              boxShadow: '0 0 20px rgba(0,0,0,0.3)'
+            }}
+          >
+            <Box sx={{ display: 'flex', justifyContent: 'center', gap: 4 }}>
+              <Typography 
+                variant="h5" 
+                sx={{
+                  fontWeight: 800,
+                  letterSpacing: '0.02em',
+                  color: '#DAA520',
+                  textShadow: '0 0 5px rgba(184,134,11,0.2)'
+                }}
+              >
+                Time: {formatTime(timeRemaining)}
+              </Typography>
+              <Typography 
+                variant="h5"
+                sx={{
+                  fontWeight: 800,
+                  letterSpacing: '0.02em',
+                  color: '#DAA520',
+                  textShadow: '0 0 5px rgba(184,134,11,0.2)'
+                }}
+              >
+                Blinds: {currentBlindLevel.smallBlind}/{currentBlindLevel.bigBlind}
+              </Typography>
+            </Box>
+          </Paper>
+        </motion.div>
       )}
 
       <List sx={{ width: '100%', maxWidth: 600, mx: 'auto' }}>
@@ -374,7 +396,6 @@ const TournamentClock: React.FC<TournamentClockProps> = ({ selectedPrize, initia
                 <ListItem
                   sx={{
                     mb: 2,
-                    bgcolor: winner === player ? 'linear-gradient(45deg, #B8860B 30%, #DAA520 90%)' : '#1E1E1E',
                     borderRadius: 2,
                     display: 'flex',
                     justifyContent: 'center',
@@ -383,15 +404,20 @@ const TournamentClock: React.FC<TournamentClockProps> = ({ selectedPrize, initia
                     textAlign: 'center',
                     p: 2,
                     boxShadow: winner === player ? 4 : 2,
-                    border: winner === player ? '2px solid rgba(255,255,255,0.3)' : '1px solid rgba(184,134,11,0.1)',
+                    border: winner === player ? '2px solid rgba(255,255,255,0.3)' : '1px solid rgba(184,134,11,0.2)',
                     transform: winner === player ? 'scale(1.02)' : 'scale(1)',
                     transition: 'all 0.3s ease',
-                    background: winner === player ? 'linear-gradient(45deg, #B8860B 30%, #DAA520 90%)' : '#1E1E1E',
+                    background: winner === player 
+                      ? 'linear-gradient(45deg, #B8860B 30%, #DAA520 90%)' 
+                      : 'linear-gradient(135deg, #2a2a2a 0%, #1E1E1E 100%)',
                     color: winner === player ? '#000000' : '#DAA520',
                     '&:hover': winner === player ? {
                       transform: 'scale(1.03)',
                       boxShadow: '0 0 20px rgba(184,134,11,0.4)'
-                    } : {}
+                    } : {
+                      transform: 'scale(1.01)',
+                      boxShadow: '0 0 10px rgba(184,134,11,0.2)'
+                    }
                   }}
                 >
                   <ListItemText
@@ -437,6 +463,7 @@ const TournamentClock: React.FC<TournamentClockProps> = ({ selectedPrize, initia
                         background: 'linear-gradient(45deg, #A9A9A9 30%, #808080 90%)',
                         '&:hover': {
                           background: 'linear-gradient(45deg, #808080 30%, #A9A9A9 90%)',
+                          boxShadow: '0 0 10px rgba(169,169,169,0.4)'
                         }
                       }}
                     >
